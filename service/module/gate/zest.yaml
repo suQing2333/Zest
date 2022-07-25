@@ -1,0 +1,17 @@
+redis:
+    ip : 81.69.250.214
+    port : 6380
+    password : zest_redis
+
+mongo :
+    ip : 81.69.250.214
+    port : 30000
+    user : zest_admin
+    password : zest_mongo
+    poolSize : 10
+    timeOut : 5000
+    idleTime : 5000
+etcd:
+    endpoints : ["81.69.250.214:2379"]
+service:
+    isout : true

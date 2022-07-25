@@ -1,0 +1,26 @@
+syntax = "proto3";
+package protoc;
+option go_package = "../protoc";
+// this is a Test
+message BaseTest {
+  string testString = 1;
+  bool testBool = 2;
+  int32 testInt = 3;
+}
+
+message RPCTestRequest {
+  string testString = 1;
+  bool testBool = 2;
+  int32 testInt = 3;
+}
+
+message RPCTestResponse {
+  string testString = 1;
+  bool testBool = 2;
+  int32 testInt = 3;
+}
+
+service RPCTestService {
+  rpc test1(RPCTestRequest) returns (RPCTestResponse);
+  rpc test2(RPCTestRequest) returns (RPCTestResponse);
+}

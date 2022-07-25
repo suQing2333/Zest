@@ -1,0 +1,37 @@
+syntax = "proto3";
+package protoc;
+option go_package = "../protoc";
+
+// gate接收到客户端发送的协议后会将消息封装成BaseProto
+// 在其他进程处理了协议后就可以通过baseInfo返回消息到客户端
+message BaseProto {
+  int32 Cmd = 1;
+  int32 Subcmd = 2;
+  bytes Data = 3;
+  bytes BackInfo = 4;
+}
+
+message BackInfo {
+  string Module = 1;
+  int32 Sid = 2;
+  int64 ConnID = 3;
+}
+
+// 客户端与服务端通信过程中发送的协议
+message CSProto {
+  int32 Cmd = 1;
+  int32 Subcmd = 2;
+  bytes Data = 3;
+}
+
+message RPCRequest {
+  string OriService = 1;
+  int64 RPCID = 2;
+  string CallFunc = 3;
+  bytes CallArgs = 4;
+}
+
+message RPCResponse {
+  int64 RPCID = 1;
+  bytes Reply = 2;
+}

@@ -1,0 +1,2 @@
+# zest/service/module/gate
+./gate.go:34:2: 123134 (untyped int constant) is not used
